@@ -2,7 +2,7 @@ import { useState } from "react";
 import Checkboxes from "./Checkboxes";
 import RadioButtons from "./RadioButtons";
 
-export default function Form() {
+export default function Form({onSubmit}) {
     const [formData, setFormData] = useState({
         color: "",
         spendTime: [],
@@ -47,6 +47,7 @@ export default function Form() {
     function handleSubmit(event) {
         event.preventDefault();
         console.log("Form submitted:", {formData});
+        onSubmit(formData);
         setFormData({
             color: "",
             spendTime: [],
